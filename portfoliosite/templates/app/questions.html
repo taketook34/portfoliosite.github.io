@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>Here you can ask me a question</h4>
+<form action="{% url 'questions' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="quote">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+    <div class="form-group">
+        <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>
+        {{ f }}
+    </div>
+    <div class="quote">{{ f.errors }}</div>
+    {% endfor %}
+        <button type="submit">Send</button>
+</form>
+{% endblock %}

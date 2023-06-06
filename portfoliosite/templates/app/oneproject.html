@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ title }}</h1>
+{% if post.link %}
+<h3 class="post-title"><a href="{{ post.link }}">LINK</a></h3>
+{% endif %}
+<p class="post-text-in"><b> {{ post.description}} </b></p>
+{% if post.screen %}
+      <img src="{{ post.screen.url }}" alt="Picture">
+      {% endif %}
+      {% if post.secondscreen %}
+      <img  src="{{ post.secondscreen.url }}" alt="Picture 2">
+      {% endif %}
+      {% if post.thirdscreen %}
+      <img src="{{ post.thirdscreen.url }}" alt="Picture 3">
+      {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for p in object_list %}
+<div class="post">
+
+      <h3 class="post-title"><a href="{{ p.get_absolute_url }}">{{p.title}} </a></h3>
+      <p class="post-text"> {{p.description|linebreaks|truncatewords:10}} </p>
+      <div class="image-row">
+      {% if p.screen %}
+      <img class="image-getsmall" src="{{ p.screen.url }}" alt="Picture">
+      {% endif %}
+      {% if p.secondscreen %}
+      <img class="image-getsmall" src="{{ p.secondscreen.url }}" alt="Picture 2">
+      {% endif %}
+      {% if p.thirdscreen %}
+      <img class="image-getsmall" src="{{ p.thirdscreen.url }}" alt="Picture 3">
+      {% endif %}
+      </div>
+</div>
+{% endfor %}
+{% endblock %}
